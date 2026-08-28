@@ -290,12 +290,29 @@ loss_fn = nn.CrossEntropyLoss()
 
 
 #========================================================================================
+#                               RESPONSE COMMAND SPECIFIC STUFF
+#========================================================================================
+
+def show_commands():
+  commands = [
+    "/train: Trains the AI for 500 epochs, giving updates and loss every 50 epochs, takes 30-120 seconds.",
+    "/chat: Once the AI is trained, this allows you to chat with the newly trained AI",
+    "/end: Ends the program.",
+    "/help: Shows commands."
+  ]
+
+  for command in commands:
+    print(command)
+
+
+#========================================================================================
 #                                      RESPONSE SYSTEM
 #========================================================================================
 
 running = True
 trained = False
 
+print("Type /help to show the commands.")
 while running:
   command = input("\nCommand:").strip().lower()
 
@@ -322,6 +339,8 @@ while running:
     else: 
       print("You need to train the AI first!")
 
+  elif command == "/help":
+    show_commands()
+  
   else:
     print("Invalid Command.")
-
