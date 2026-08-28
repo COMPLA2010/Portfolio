@@ -161,6 +161,7 @@ class Transformer(nn.Module):
 
 def train_model(epochs, epoch_check):
   model.train()
+  print("Training Started")
 
   torch.cuda.synchronize()
   start_time = time.perf_counter()
